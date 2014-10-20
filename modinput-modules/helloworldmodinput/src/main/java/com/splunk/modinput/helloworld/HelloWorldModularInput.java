@@ -2,7 +2,6 @@ package com.splunk.modinput.helloworld;
 
 import java.util.ArrayList;
 import java.util.Date;
-
 import java.util.List;
 
 import com.splunk.modinput.Arg;
@@ -12,14 +11,12 @@ import com.splunk.modinput.Item;
 import com.splunk.modinput.ModularInput;
 import com.splunk.modinput.Param;
 import com.splunk.modinput.Scheme;
+import com.splunk.modinput.Scheme.StreamingMode;
+import com.splunk.modinput.Stanza;
 import com.splunk.modinput.Stream;
 import com.splunk.modinput.StreamEvent;
-
-import com.splunk.modinput.Stanza;
-
 import com.splunk.modinput.Validation;
 import com.splunk.modinput.ValidationError;
-import com.splunk.modinput.Scheme.StreamingMode;
 
 public class HelloWorldModularInput extends ModularInput {
 

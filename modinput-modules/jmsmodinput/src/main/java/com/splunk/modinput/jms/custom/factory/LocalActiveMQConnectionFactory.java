@@ -68,7 +68,7 @@ public class LocalActiveMQConnectionFactory implements LocalJMSResourceFactory {
 	public ConnectionFactory createConnectionFactory() throws Exception {
 
 		ActiveMQConnectionFactory factory = null;
-		if (brokerURL == null){
+		if (brokerURL == null) {
 			throw new Exception("Broker URL must be supplied");
 		}
 		try {

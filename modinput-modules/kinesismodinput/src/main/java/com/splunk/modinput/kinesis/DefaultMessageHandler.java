@@ -4,24 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-
 import com.splunk.modinput.SplunkLogEvent;
 import com.splunk.modinput.Stream;
 import com.splunk.modinput.StreamEvent;
-import com.splunk.modinput.kinesis.KinesisModularInput.MessageReceiver; 
+import com.splunk.modinput.kinesis.KinesisModularInput.MessageReceiver;
 
 public class DefaultMessageHandler extends AbstractMessageHandler {
 
 	@Override
-	public Stream handleMessage(String record,String seqNumber,String partitionKey,MessageReceiver context)
-			throws Exception {
+	public Stream handleMessage(String record, String seqNumber,
+			String partitionKey, MessageReceiver context) throws Exception {
 
 		SplunkLogEvent splunkEvent = buildCommonEventMessagePart(context);
 
 		splunkEvent.addPair("record", stripNewlines(record));
 		splunkEvent.addPair("sequence_number", seqNumber);
 		splunkEvent.addPair("partition_key", partitionKey);
-		
+
 		String text = splunkEvent.toString();
 		Stream stream = new Stream();
 		ArrayList<StreamEvent> list = new ArrayList<StreamEvent>();

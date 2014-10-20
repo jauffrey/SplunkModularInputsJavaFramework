@@ -2,7 +2,6 @@ package com.dtdsoftware.splunk.config;
 
 import java.util.List;
 
-
 /**
  * POJO for an MBean
  * 

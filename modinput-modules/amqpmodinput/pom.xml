@@ -11,11 +11,8 @@
 
 	<groupId>com.splunk.modinput</groupId>
 	<artifactId>amqpmodinput</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>AMQP Modinput framework module</name>
-
-
+	<name>Modinput AMQP java module</name>
 
 	<dependencies>
 		<dependency>

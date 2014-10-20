@@ -7,6 +7,7 @@ import java.util.Set;
  * <pre>
  * Default formatter implementation
  * </pre>
+ * 
  * @author Damien Dallimore damien@dtdsoftware.com
  * 
  */
@@ -45,7 +46,7 @@ public class DefaultFormatter extends SplunkFormatter implements Formatter {
 
 			String value = attributes.get(key);
 			value = FormatterUtils.stripNewlines(value);
-			value= stripPatterns(value);
+			value = stripPatterns(value);
 			output.append(buildPair(key, value));
 		}
 
@@ -57,8 +58,6 @@ public class DefaultFormatter extends SplunkFormatter implements Formatter {
 																			// character(s)
 
 	}
-
-	
 
 	@Override
 	public void setMetaData(Map<String, String> metaData) {

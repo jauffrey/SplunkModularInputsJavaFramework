@@ -35,6 +35,4 @@ public class Stanza {
 		this.name = name;
 	}
 
-	
-
 }

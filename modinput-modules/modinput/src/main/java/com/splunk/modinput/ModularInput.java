@@ -116,8 +116,9 @@ public abstract class ModularInput {
 				System.exit(2);
 			}
 		} catch (Exception e) {
-			logger.error("Error executing modular input : " + e.getMessage() +  " : " + ModularInput.getStackTrace(e));
-						
+			logger.error("Error executing modular input : " + e.getMessage()
+					+ " : " + ModularInput.getStackTrace(e));
+
 			System.exit(2);
 		}
 
@@ -303,7 +304,8 @@ public abstract class ModularInput {
 				}
 			}
 		} catch (Throwable e) {
-			logger.error("Error setting JVM system propertys from string : "+propsString+" : "+getStackTrace(e));
+			logger.error("Error setting JVM system propertys from string : "
+					+ propsString + " : " + getStackTrace(e));
 		}
 
 	}

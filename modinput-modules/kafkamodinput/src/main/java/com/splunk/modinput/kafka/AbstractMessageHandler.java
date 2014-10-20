@@ -2,24 +2,23 @@ package com.splunk.modinput.kafka;
 
 import java.util.Map;
 
-
 import com.splunk.modinput.SplunkLogEvent;
 import com.splunk.modinput.Stream;
 import com.splunk.modinput.kafka.KafkaModularInput.MessageReceiver;
 
 public abstract class AbstractMessageHandler {
 
-	public abstract Stream handleMessage(byte[] messageContents,MessageReceiver context) throws Exception;
+	public abstract Stream handleMessage(byte[] messageContents,
+			MessageReceiver context) throws Exception;
 
 	public abstract void setParams(Map<String, String> params);
 
 	protected SplunkLogEvent buildCommonEventMessagePart(MessageReceiver context)
 			throws Exception {
 
-		SplunkLogEvent event = new SplunkLogEvent("kafka_msg_received",
-				 "", true, true);
+		SplunkLogEvent event = new SplunkLogEvent("kafka_msg_received", "",
+				true, true);
 
-		
 		return event;
 
 	}

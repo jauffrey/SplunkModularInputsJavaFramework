@@ -1,17 +1,13 @@
 package com.splunk.modinput.kinesis;
 
 import java.net.InetAddress;
-
 import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.util.ArrayList;
-
 import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
-
 import java.util.StringTokenizer;
 import java.util.UUID;
 
@@ -30,7 +26,6 @@ import com.amazonaws.services.kinesis.clientlibrary.lib.worker.KinesisClientLibC
 import com.amazonaws.services.kinesis.clientlibrary.lib.worker.Worker;
 import com.amazonaws.services.kinesis.clientlibrary.types.ShutdownReason;
 import com.amazonaws.services.kinesis.model.Record;
-
 import com.splunk.modinput.Arg;
 import com.splunk.modinput.Endpoint;
 import com.splunk.modinput.Input;
@@ -38,12 +33,11 @@ import com.splunk.modinput.Item;
 import com.splunk.modinput.ModularInput;
 import com.splunk.modinput.Param;
 import com.splunk.modinput.Scheme;
-
+import com.splunk.modinput.Scheme.StreamingMode;
 import com.splunk.modinput.Stanza;
 import com.splunk.modinput.Stream;
 import com.splunk.modinput.Validation;
 import com.splunk.modinput.ValidationError;
-import com.splunk.modinput.Scheme.StreamingMode;
 
 public class KinesisModularInput extends ModularInput {
 
@@ -265,9 +259,11 @@ public class KinesisModularInput extends ModularInput {
 
 		}
 
-		public void streamMessageEvent(String record,String seqNumber,String partitionKey) {
+		public void streamMessageEvent(String record, String seqNumber,
+				String partitionKey) {
 			try {
-				Stream stream = messageHandler.handleMessage(record,seqNumber,partitionKey, this);
+				Stream stream = messageHandler.handleMessage(record, seqNumber,
+						partitionKey, this);
 				marshallObjectToXML(stream);
 			} catch (Exception e) {
 				logger.error("Stanza " + stanzaName + " : "
@@ -585,9 +581,11 @@ public class KinesisModularInput extends ModularInput {
 				String data = null;
 				for (int i = 0; i < numRetries; i++) {
 					try {
-						
+
 						data = decoder.decode(record.getData()).toString();
-						context.streamMessageEvent(data,record.getSequenceNumber(),record.getPartitionKey());
+						context.streamMessageEvent(data,
+								record.getSequenceNumber(),
+								record.getPartitionKey());
 						processedSuccessfully = true;
 						break;
 					} catch (CharacterCodingException e) {

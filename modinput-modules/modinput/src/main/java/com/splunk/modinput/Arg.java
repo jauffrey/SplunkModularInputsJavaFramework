@@ -1,7 +1,7 @@
 package com.splunk.modinput;
 
-import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(propOrder = { "title", "description", "validation", "data_type",

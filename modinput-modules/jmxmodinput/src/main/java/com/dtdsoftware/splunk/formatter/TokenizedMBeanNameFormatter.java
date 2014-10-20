@@ -1,6 +1,5 @@
 package com.dtdsoftware.splunk.formatter;
 
-
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
@@ -12,6 +11,7 @@ import java.util.TreeMap;
  * Custom formatter implementation that outputs the mbean canonical name as
  * split up tokens
  * </pre>
+ * 
  * @author Damien Dallimore damien@dtdsoftware.com
  * 
  */
@@ -56,7 +56,7 @@ public class TokenizedMBeanNameFormatter extends SplunkFormatter implements
 
 			String value = attributes.get(key);
 			value = FormatterUtils.stripNewlines(value);
-			value= stripPatterns(value);
+			value = stripPatterns(value);
 			output.append(buildPair(key, value));
 		}
 

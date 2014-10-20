@@ -14,6 +14,7 @@ import java.util.TreeMap;
  * Has some extra formatting specifics to deal with MBean
  * property values that are sometimes quoted.
  * </pre>
+ * 
  * @author Damien Dallimore damien@dtdsoftware.com
  * 
  */
@@ -58,7 +59,7 @@ public class TokenizedMBeanNameQuotesStrippedFormatter extends SplunkFormatter
 
 			String value = attributes.get(key);
 			value = FormatterUtils.stripNewlines(value);
-			value= stripPatterns(value);
+			value = stripPatterns(value);
 			output.append(buildPair(key, value));
 		}
 
@@ -101,8 +102,8 @@ public class TokenizedMBeanNameQuotesStrippedFormatter extends SplunkFormatter
 				continue;
 			}
 
-			result.put("mbean_property_" + property[0], FormatterUtils
-					.trimQuotes(property[1]));
+			result.put("mbean_property_" + property[0],
+					FormatterUtils.trimQuotes(property[1]));
 		}
 
 		return result;

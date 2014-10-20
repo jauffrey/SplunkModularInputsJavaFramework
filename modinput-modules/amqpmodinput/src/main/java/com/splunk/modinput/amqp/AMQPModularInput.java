@@ -1,9 +1,7 @@
 package com.splunk.modinput.amqp;
 
 import java.util.ArrayList;
-
 import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -12,7 +10,6 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
-
 import com.splunk.modinput.Arg;
 import com.splunk.modinput.Arg.DataType;
 import com.splunk.modinput.Endpoint;
@@ -21,12 +18,11 @@ import com.splunk.modinput.Item;
 import com.splunk.modinput.ModularInput;
 import com.splunk.modinput.Param;
 import com.splunk.modinput.Scheme;
-
+import com.splunk.modinput.Scheme.StreamingMode;
 import com.splunk.modinput.Stanza;
 import com.splunk.modinput.Stream;
 import com.splunk.modinput.Validation;
 import com.splunk.modinput.ValidationError;
-import com.splunk.modinput.Scheme.StreamingMode;
 
 public class AMQPModularInput extends ModularInput {
 

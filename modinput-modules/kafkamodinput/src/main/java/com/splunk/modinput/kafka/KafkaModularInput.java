@@ -1,18 +1,16 @@
 package com.splunk.modinput.kafka;
 
 import java.util.ArrayList;
-
 import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
 import kafka.consumer.ConsumerConfig;
-import kafka.javaapi.consumer.ConsumerConnector;
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
+import kafka.javaapi.consumer.ConsumerConnector;
 
 import com.splunk.modinput.Arg;
 import com.splunk.modinput.Endpoint;
@@ -21,12 +19,11 @@ import com.splunk.modinput.Item;
 import com.splunk.modinput.ModularInput;
 import com.splunk.modinput.Param;
 import com.splunk.modinput.Scheme;
-
+import com.splunk.modinput.Scheme.StreamingMode;
 import com.splunk.modinput.Stanza;
 import com.splunk.modinput.Stream;
 import com.splunk.modinput.Validation;
 import com.splunk.modinput.ValidationError;
-import com.splunk.modinput.Scheme.StreamingMode;
 
 public class KafkaModularInput extends ModularInput {
 
@@ -175,7 +172,8 @@ public class KafkaModularInput extends ModularInput {
 			connectionProperties.put("group.id", String.valueOf(groupID));
 			connectionProperties.put("zookeeper.session.timeout.ms",
 					String.valueOf(zkSessionTimeout));
-			connectionProperties.put("zookeeper.sync.time.ms", String.valueOf(zkSyncTime));
+			connectionProperties.put("zookeeper.sync.time.ms",
+					String.valueOf(zkSyncTime));
 			connectionProperties.put("auto.commit.interval.ms",
 					String.valueOf(autoCommitInterval));
 

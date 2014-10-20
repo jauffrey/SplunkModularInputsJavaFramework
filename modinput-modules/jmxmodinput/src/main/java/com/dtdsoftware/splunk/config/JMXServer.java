@@ -224,11 +224,13 @@ public class JMXServer {
 				StringTokenizer st = new StringTokenizer(rawLine, ",");
 				int pid = Integer.parseInt(st.nextToken());
 				setProcessID(pid);
-				String jvmDesc = this.jvmDescription == null || this.jvmDescription.length() == 0 ? "JVM PID " + pid : this.jvmDescription;
+				String jvmDesc = this.jvmDescription == null
+						|| this.jvmDescription.length() == 0 ? "JVM PID " + pid
+						: this.jvmDescription;
 				if (st.hasMoreTokens())
 					jvmDesc = st.nextToken();
 				setJvmDescription(jvmDesc);
-				
+
 			} else {
 				throw new Exception("No command output");
 			}

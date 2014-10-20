@@ -7,11 +7,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
-
-import java.util.List;
 
 import javax.management.MBeanAttributeInfo;
 import javax.management.MBeanServerConnection;
@@ -30,7 +29,6 @@ import javax.management.remote.JMXServiceURL;
 import org.apache.xerces.parsers.SAXParser;
 import org.exolab.castor.mapping.Mapping;
 import org.exolab.castor.xml.Unmarshaller;
-
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
@@ -50,16 +48,13 @@ import com.splunk.modinput.Item;
 import com.splunk.modinput.ModularInput;
 import com.splunk.modinput.Param;
 import com.splunk.modinput.Scheme;
+import com.splunk.modinput.Scheme.StreamingMode;
 import com.splunk.modinput.SplunkLogEvent;
+import com.splunk.modinput.Stanza;
 import com.splunk.modinput.Stream;
 import com.splunk.modinput.StreamEvent;
-
-import com.splunk.modinput.Stanza;
-
 import com.splunk.modinput.Validation;
 import com.splunk.modinput.ValidationError;
-import com.splunk.modinput.Scheme.StreamingMode;
-
 import com.sun.tools.attach.VirtualMachine;
 
 public class JMXModularInput extends ModularInput {
@@ -293,9 +288,9 @@ public class JMXModularInput extends ModularInput {
 		boolean registerNotifications = true;
 		String stanzaName;
 		String configFileName;
-		//default for the first run
+		// default for the first run
 		long configFileModifiedTime = 0;
-		//if config file uses pidfile or pidcommand
+		// if config file uses pidfile or pidcommand
 		boolean hasDynamicPIDSettings = false;
 
 		public JMXMBeanPoller(String stanzaName, String configFile) {
@@ -306,6 +301,7 @@ public class JMXModularInput extends ModularInput {
 
 		/**
 		 * Determine if config file has been modified
+		 * 
 		 * @return
 		 */
 		public boolean configFileHasChanged() {

@@ -2,14 +2,14 @@ package com.splunk.modinput.kinesis;
 
 import java.util.Map;
 
-
 import com.splunk.modinput.SplunkLogEvent;
 import com.splunk.modinput.Stream;
 import com.splunk.modinput.kinesis.KinesisModularInput.MessageReceiver;
 
 public abstract class AbstractMessageHandler {
 
-	public abstract Stream handleMessage(String record,String seqNumber,String partitionKey,MessageReceiver context) throws Exception;
+	public abstract Stream handleMessage(String record, String seqNumber,
+			String partitionKey, MessageReceiver context) throws Exception;
 
 	public abstract void setParams(Map<String, String> params);
 
@@ -17,9 +17,8 @@ public abstract class AbstractMessageHandler {
 			throws Exception {
 
 		SplunkLogEvent event = new SplunkLogEvent("kinesis_record_received",
-				 "", true, true);
+				"", true, true);
 
-		
 		return event;
 
 	}

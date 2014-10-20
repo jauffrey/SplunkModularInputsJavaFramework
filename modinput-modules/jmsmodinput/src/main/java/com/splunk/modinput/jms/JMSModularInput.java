@@ -1,6 +1,5 @@
 package com.splunk.modinput.jms;
 
-
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -29,13 +28,13 @@ import com.splunk.modinput.Item;
 import com.splunk.modinput.ModularInput;
 import com.splunk.modinput.Param;
 import com.splunk.modinput.Scheme;
+import com.splunk.modinput.Scheme.StreamingMode;
 import com.splunk.modinput.SplunkLogEvent;
 import com.splunk.modinput.Stanza;
 import com.splunk.modinput.Stream;
 import com.splunk.modinput.StreamEvent;
 import com.splunk.modinput.Validation;
 import com.splunk.modinput.ValidationError;
-import com.splunk.modinput.Scheme.StreamingMode;
 
 public class JMSModularInput extends ModularInput {
 
@@ -219,10 +218,9 @@ public class JMSModularInput extends ModularInput {
 				} catch (Exception e) {
 					logger.error("Can't determine browse frequency");
 				}
-			}else if (param.getName().equals("jvm_system_properties")) {
+			} else if (param.getName().equals("jvm_system_properties")) {
 				setJVMSystemProperties(param.getValue());
-			} 
-			
+			}
 
 		}
 
@@ -333,8 +331,10 @@ public class JMSModularInput extends ModularInput {
 					localFactory
 							.setParams(getParamMap(localResourceFactoryParams));
 				} catch (Exception e) {
-					logger.error("Stanza "+stanzaName+" : "+"Can't instantiate local resource factory : "
-							+ localResourceFactoryImpl + " , " + ModularInput.getStackTrace(e));
+					logger.error("Stanza " + stanzaName + " : "
+							+ "Can't instantiate local resource factory : "
+							+ localResourceFactoryImpl + " , "
+							+ ModularInput.getStackTrace(e));
 					System.exit(2);
 				}
 			}
@@ -344,8 +344,10 @@ public class JMSModularInput extends ModularInput {
 						messageHandlerImpl).newInstance();
 				messageHandler.setParams(getParamMap(messageHandlerParams));
 			} catch (Exception e) {
-				logger.error("Stanza "+stanzaName+" : "+"Can't instantiate message handler : "
-						+ messageHandlerImpl + " , " + ModularInput.getStackTrace(e));
+				logger.error("Stanza " + stanzaName + " : "
+						+ "Can't instantiate message handler : "
+						+ messageHandlerImpl + " , "
+						+ ModularInput.getStackTrace(e));
 				System.exit(2);
 			}
 
@@ -416,21 +418,23 @@ public class JMSModularInput extends ModularInput {
 						destinationPass);
 			else
 				connection = connFactory.createConnection();
-			
-			
+
 			if (durable && type.equals(DestinationType.TOPIC))
-			    connection.setClientID(clientID);
-			
+				connection.setClientID(clientID);
+
 			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
 			if (durable && type.equals(DestinationType.TOPIC)) {
 
 				try {
-					
+
 					messageConsumer = session.createDurableSubscriber(
 							(Topic) dest, clientID, selector, true);
 				} catch (Exception e) {
-					logger.error("Stanza "+stanzaName+" : "+"Error creating durable subscriber for client id: "
+					logger.error("Stanza "
+							+ stanzaName
+							+ " : "
+							+ "Error creating durable subscriber for client id: "
 							+ clientID + " , " + ModularInput.getStackTrace(e));
 					messageConsumer = session.createConsumer(dest, selector);
 				}
@@ -452,7 +456,9 @@ public class JMSModularInput extends ModularInput {
 				if (connection != null)
 					connection.close();
 			} catch (Exception e) {
-				logger.error("Stanza "+stanzaName+" : "+"Error disconnecting : " + ModularInput.getStackTrace(e));
+				logger.error("Stanza " + stanzaName + " : "
+						+ "Error disconnecting : "
+						+ ModularInput.getStackTrace(e));
 			}
 			connected = false;
 
@@ -463,7 +469,8 @@ public class JMSModularInput extends ModularInput {
 
 				connect();
 			} catch (Throwable t) {
-				logger.error("Stanza "+stanzaName+" : "+"Error connecting : " + ModularInput.getStackTrace(t));
+				logger.error("Stanza " + stanzaName + " : "
+						+ "Error connecting : " + ModularInput.getStackTrace(t));
 			} finally {
 				disconnect();
 			}
@@ -477,7 +484,9 @@ public class JMSModularInput extends ModularInput {
 						connect();
 
 					} catch (Throwable t) {
-						logger.error("Stanza "+stanzaName+" : "+"Error connecting : " + ModularInput.getStackTrace(t));
+						logger.error("Stanza " + stanzaName + " : "
+								+ "Error connecting : "
+								+ ModularInput.getStackTrace(t));
 						try {
 							// sleep 10 secs then try to reconnect
 							Thread.sleep(10000);
@@ -505,7 +514,8 @@ public class JMSModularInput extends ModularInput {
 					}
 
 				} catch (Exception e) {
-					logger.error("Stanza "+stanzaName+" : "+"Error running message receiver : "
+					logger.error("Stanza " + stanzaName + " : "
+							+ "Error running message receiver : "
 							+ ModularInput.getStackTrace(e));
 					disconnect();
 
@@ -520,7 +530,9 @@ public class JMSModularInput extends ModularInput {
 				Stream stream = messageHandler.handleMessage(message, this);
 				marshallObjectToXML(stream);
 			} catch (Exception e) {
-				logger.error("Stanza "+stanzaName+" : "+"Error handling message : " + ModularInput.getStackTrace(e));
+				logger.error("Stanza " + stanzaName + " : "
+						+ "Error handling message : "
+						+ ModularInput.getStackTrace(e));
 			}
 		}
 
@@ -556,7 +568,9 @@ public class JMSModularInput extends ModularInput {
 					event.addPair("latest_msg", latest);
 				}
 			} catch (Exception e) {
-				logger.error("Stanza "+stanzaName+" : "+"Error browsing queue stats : " + ModularInput.getStackTrace(e));
+				logger.error("Stanza " + stanzaName + " : "
+						+ "Error browsing queue stats : "
+						+ ModularInput.getStackTrace(e));
 			}
 
 			streamNonMessageEvent(event.toString());
@@ -588,7 +602,9 @@ public class JMSModularInput extends ModularInput {
 				}
 
 			} catch (Exception e) {
-				logger.error("Stanza "+stanzaName+" : "+"Error browsing queue : " + ModularInput.getStackTrace(e));
+				logger.error("Stanza " + stanzaName + " : "
+						+ "Error browsing queue : "
+						+ ModularInput.getStackTrace(e));
 			}
 
 		}
@@ -674,8 +690,6 @@ public class JMSModularInput extends ModularInput {
 
 	}
 
-	
-	
 	@Override
 	protected Scheme getScheme() {
 
@@ -701,8 +715,6 @@ public class JMSModularInput extends ModularInput {
 		arg.setDescription("Name of the initial context factory.If you are using a specific context factory implmentation, ensure that the necessary jars are in the $SPLUNK_HOME/etc/apps/jms_ta/bin/lib directory");
 		arg.setRequired_on_create(false);
 		endpoint.addArg(arg);
-		
-		
 
 		arg = new Arg();
 		arg.setName("jndi_provider_url");
@@ -811,7 +823,7 @@ public class JMSModularInput extends ModularInput {
 		arg.setRequired_on_create(false);
 		arg.setData_type(DataType.BOOLEAN);
 		endpoint.addArg(arg);
-		
+
 		arg = new Arg();
 		arg.setName("jvm_system_properties");
 		arg.setTitle("Custom JVM System Properties");

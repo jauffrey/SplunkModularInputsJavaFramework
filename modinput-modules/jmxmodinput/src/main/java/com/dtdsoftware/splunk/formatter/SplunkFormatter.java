@@ -35,7 +35,7 @@ public abstract class SplunkFormatter {
 	// first part of the SPLUNK output String, common to all MBeans
 	StringBuffer outputPrefix;
 
-	//configurable parameters
+	// configurable parameters
 	static final String KEY_VAL_DELIMITER_PARAM = "kvdelim";
 	static final String PAIR_DELIMITER_PARAM = "pairdelim";
 	static final String QUOTE_CHAR_PARAM = "quotechar";
@@ -134,10 +134,10 @@ public abstract class SplunkFormatter {
 			if (key.startsWith(STRIP_PATTERN)) {
 				String pattern = parameters.get(key);
 				if (pattern != null && pattern.length() > 0)
-					try{
-					stripPatterns.add(Pattern.compile(pattern));
+					try {
+						stripPatterns.add(Pattern.compile(pattern));
+					} catch (Exception e) {
 					}
-				    catch(Exception e){}
 			}
 		}
 
@@ -179,8 +179,10 @@ public abstract class SplunkFormatter {
 	/**
 	 * Optionally prepend a date to the event String
 	 * 
-	 * @param timestamp the event epoch time
-	 * @param output the event buffer
+	 * @param timestamp
+	 *            the event epoch time
+	 * @param output
+	 *            the event buffer
 	 */
 	void prependDate(long timestamp, StringBuffer output) {
 
@@ -190,27 +192,27 @@ public abstract class SplunkFormatter {
 		}
 
 	}
-	
+
 	/**
 	 * Optionally strip regex matched text from the attribute/operation values
 	 * 
-	 * @param rawValue the raw input String
+	 * @param rawValue
+	 *            the raw input String
 	 * @return the result of the search/replace
 	 */
-	String stripPatterns(String rawValue){
-		
-		if(!stripPatterns.isEmpty()){
-			
+	String stripPatterns(String rawValue) {
+
+		if (!stripPatterns.isEmpty()) {
+
 			String stripped = rawValue;
-			for(Pattern pattern : stripPatterns){
+			for (Pattern pattern : stripPatterns) {
 				stripped = FormatterUtils.stripPattern(pattern, stripped);
 			}
 			return stripped;
-		}
-		else{
+		} else {
 			return rawValue;
 		}
-		
+
 	}
 
 }

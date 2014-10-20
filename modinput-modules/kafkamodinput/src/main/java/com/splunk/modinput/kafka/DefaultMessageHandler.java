@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-
 import com.splunk.modinput.SplunkLogEvent;
 import com.splunk.modinput.Stream;
 import com.splunk.modinput.StreamEvent;
@@ -13,7 +12,7 @@ import com.splunk.modinput.kafka.KafkaModularInput.MessageReceiver;
 public class DefaultMessageHandler extends AbstractMessageHandler {
 
 	@Override
-	public Stream handleMessage(byte[] messageContents,MessageReceiver context)
+	public Stream handleMessage(byte[] messageContents, MessageReceiver context)
 			throws Exception {
 
 		SplunkLogEvent splunkEvent = buildCommonEventMessagePart(context);

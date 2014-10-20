@@ -1,6 +1,5 @@
 package com.splunk.modinput.jms;
 
-
 import java.util.Enumeration;
 import java.util.Map;
 
@@ -15,16 +14,18 @@ import com.splunk.modinput.SplunkLogEvent;
 import com.splunk.modinput.Stream;
 import com.splunk.modinput.jms.JMSModularInput.MessageReceiver;
 
-
 public abstract class AbstractMessageHandler {
-	
-	public abstract Stream handleMessage(Message message,MessageReceiver context) throws Exception;
+
+	public abstract Stream handleMessage(Message message,
+			MessageReceiver context) throws Exception;
+
 	public abstract void setParams(Map<String, String> params);
 
-	protected SplunkLogEvent buildCommonEventMessagePart(Message message,MessageReceiver context) throws Exception{
-	
-		SplunkLogEvent event = new SplunkLogEvent(context.type + "_msg_received",
-				message.getJMSMessageID(), true, true);
+	protected SplunkLogEvent buildCommonEventMessagePart(Message message,
+			MessageReceiver context) throws Exception {
+
+		SplunkLogEvent event = new SplunkLogEvent(context.type
+				+ "_msg_received", message.getJMSMessageID(), true, true);
 
 		event.addPair("msg_dest", context.destination);
 
@@ -35,11 +36,9 @@ public abstract class AbstractMessageHandler {
 					message.getJMSCorrelationID());
 			event.addPair("msg_header_delivery_mode",
 					message.getJMSDeliveryMode());
-			event.addPair("msg_header_expiration",
-					message.getJMSExpiration());
+			event.addPair("msg_header_expiration", message.getJMSExpiration());
 			event.addPair("msg_header_priority", message.getJMSPriority());
-			event.addPair("msg_header_redelivered",
-					message.getJMSRedelivered());
+			event.addPair("msg_header_redelivered", message.getJMSRedelivered());
 			event.addPair("msg_header_type", message.getJMSType());
 		}
 
@@ -52,16 +51,14 @@ public abstract class AbstractMessageHandler {
 				event.addPair("msg_property_" + name, property);
 			}
 		}
-		
+
 		return event;
-		
-		
+
 	}
-	
-	
-	protected String getMessageBody(Message message){
-		
-		String body="";
+
+	protected String getMessageBody(Message message) {
+
+		String body = "";
 		try {
 			if (message instanceof TextMessage) {
 				body = ((TextMessage) message).getText();
@@ -76,19 +73,19 @@ public abstract class AbstractMessageHandler {
 					while (true) {
 
 						buffer = new byte[bufSize];
-						readBytes = ((BytesMessage) message).readBytes(
-								buffer, bufSize);
+						readBytes = ((BytesMessage) message).readBytes(buffer,
+								bufSize);
 						if (readBytes == -1)
 							break;
 						if (messageBodyBytes == null) {
 							messageBodyBytes = new byte[readBytes];
-							System.arraycopy(buffer, 0, messageBodyBytes,
-									0, readBytes);
+							System.arraycopy(buffer, 0, messageBodyBytes, 0,
+									readBytes);
 						} else {
 							byte[] extended = new byte[messageBodyBytes.length
 									+ readBytes];
-							System.arraycopy(messageBodyBytes, 0, extended,
-									0, messageBodyBytes.length);
+							System.arraycopy(messageBodyBytes, 0, extended, 0,
+									messageBodyBytes.length);
 							System.arraycopy(buffer, 0, extended,
 									messageBodyBytes.length, readBytes);
 							messageBodyBytes = extended;
@@ -124,7 +121,7 @@ public abstract class AbstractMessageHandler {
 		return body;
 
 	}
-	
+
 	protected String stripNewlines(String input) {
 
 		if (input == null) {
@@ -139,5 +136,5 @@ public abstract class AbstractMessageHandler {
 
 		return new String(chars);
 	}
-	
+
 }

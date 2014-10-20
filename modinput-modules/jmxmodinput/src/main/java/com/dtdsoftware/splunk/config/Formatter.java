@@ -39,11 +39,11 @@ public class Formatter extends ParameterizedConfig {
 
 		com.dtdsoftware.splunk.formatter.Formatter obj = (com.dtdsoftware.splunk.formatter.Formatter) Class
 				.forName(className).newInstance();
-		
-		Map <String,String>parameters = this.getParameters();
-		if(parameters == null)
+
+		Map<String, String> parameters = this.getParameters();
+		if (parameters == null)
 			parameters = new HashMap<String, String>();
-		
+
 		obj.setParameters(parameters);
 		return obj;
 	}

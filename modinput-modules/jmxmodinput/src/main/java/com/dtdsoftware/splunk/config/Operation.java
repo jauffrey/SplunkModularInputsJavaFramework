@@ -4,9 +4,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-
-
-
 /**
  * POJO for an MBean operation
  * 
@@ -25,7 +22,6 @@ public class Operation {
 	public List<Parameter> parameters;
 
 	private static Logger logger = Logger.getLogger(Operation.class);
-	
 
 	public Operation() {
 	}
