@@ -9,7 +9,6 @@
 		<relativePath>..</relativePath>
 	</parent>
 
-	<groupId>com.splunk.modinput</groupId>
 	<artifactId>jmsmodinput</artifactId>
 	<packaging>jar</packaging>
 	<name>Modinput JMS java module</name>

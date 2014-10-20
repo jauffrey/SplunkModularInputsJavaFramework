@@ -9,7 +9,6 @@
 		<relativePath>..</relativePath>
 	</parent>
 
-	<groupId>com.splunk.modinput</groupId>
 	<artifactId>kafkamodinput</artifactId>
 	<packaging>jar</packaging>
 	<name>Modinput KAFKA java module</name>

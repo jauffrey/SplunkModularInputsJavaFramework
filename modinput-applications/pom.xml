@@ -9,9 +9,7 @@
 		<relativePath>..</relativePath>
 	</parent>
 
-	<groupId>com.splunk.modinput</groupId>
 	<artifactId>applications-repo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Modinput applications repository</name>
 
@@ -24,7 +22,7 @@
 		<module>kafka</module>
 		<module>kinesis</module>
 	</modules>
-		<build>
+	<build>
 		<pluginManagement>
 			<plugins>
 				<plugin>

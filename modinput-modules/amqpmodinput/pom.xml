@@ -9,7 +9,6 @@
 		<relativePath>..</relativePath>
 	</parent>
 
-	<groupId>com.splunk.modinput</groupId>
 	<artifactId>amqpmodinput</artifactId>
 	<packaging>jar</packaging>
 	<name>Modinput AMQP java module</name>

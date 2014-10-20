@@ -9,14 +9,13 @@
 		<relativePath>..</relativePath>
 	</parent>
 
-	<groupId>com.splunk.modinput</groupId>
 	<artifactId>jms</artifactId>
 	<packaging>pom</packaging>
 	<name>Modinput ${project.artifactId} app for Splunk</name>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.splunk.modinput</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>${project.artifactId}modinput</artifactId>
 			<version>${project.version}</version>
 		</dependency>

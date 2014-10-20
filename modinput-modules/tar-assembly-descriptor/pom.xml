@@ -9,7 +9,6 @@
 		<relativePath>..</relativePath>
 	</parent>
 
-	<groupId>com.splunk.modinput</groupId>
 	<artifactId>tar-assembly-descriptor</artifactId>
 	<name>Shared Tar Assembly Descriptor</name>
 

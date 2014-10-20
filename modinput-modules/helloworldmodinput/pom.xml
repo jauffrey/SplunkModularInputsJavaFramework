@@ -9,7 +9,6 @@
 		<relativePath>..</relativePath>
 	</parent>
 
-	<groupId>com.splunk.modinput</groupId>
 	<artifactId>helloworldmodinput</artifactId>
 	<packaging>jar</packaging>
 	<name>Modinput helloworld java module</name>

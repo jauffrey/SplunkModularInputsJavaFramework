@@ -9,7 +9,6 @@
 		<relativePath>..</relativePath>
 	</parent>
 
-	<groupId>com.splunk.modinput</groupId>
 	<artifactId>kinesismodinput</artifactId>
 	<packaging>jar</packaging>
 	<name>Modinput KINESIS java module</name>

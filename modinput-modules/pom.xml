@@ -9,7 +9,6 @@
 		<relativePath>..</relativePath>
 	</parent>
 
-	<groupId>com.splunk.modinput</groupId>
 	<artifactId>modules-repo</artifactId>
 	<packaging>pom</packaging>
 	<name>Modinput modules repostory</name>
