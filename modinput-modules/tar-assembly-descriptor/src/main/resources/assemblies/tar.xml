@@ -17,5 +17,13 @@
 			<outputDirectory>${artifactId}_ta/bin/lib</outputDirectory>
 			<filtered>false</filtered>
 		</fileSet>
+		<fileSet>
+			<directory>target</directory>
+			<outputDirectory>${artifactId}_ta/bin/lib</outputDirectory>
+			<filtered>false</filtered>
+			<includes>
+				<include>${artifactId}modinput.jar</include>
+			</includes>
+		</fileSet>
 	</fileSets>
 </assembly>

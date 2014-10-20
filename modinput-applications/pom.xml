@@ -22,7 +22,15 @@
 		<module>kafka</module>
 		<module>kinesis</module>
 	</modules>
+	<dependencies>
+		<dependency>
+			<groupId>com.splunk.modinput</groupId>
+			<artifactId>modinput</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
 	<build>
+		<finalName>${project.artifactId}modinput</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -72,6 +80,7 @@
 									<descriptorRef>tar</descriptorRef>
 								</descriptorRefs>
 								<appendAssemblyId>false</appendAssemblyId>
+								<finalName>${project.artifactId}-messaging-modular-input-${project.version}</finalName>
 							</configuration>
 						</execution>
 					</executions>

@@ -16,12 +16,6 @@
 	<modules>
 		<module>tar-assembly-descriptor</module>
 		<module>modinput</module>
-		<module>helloworldmodinput</module>
-		<module>jmsmodinput</module>
-		<module>amqpmodinput</module>
-		<module>jmxmodinput</module>
-		<module>kafkamodinput</module>
-		<module>kinesismodinput</module>
 	</modules>
 
 </project>

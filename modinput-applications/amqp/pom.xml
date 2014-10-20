@@ -10,14 +10,14 @@
 	</parent>
 
 	<artifactId>amqp</artifactId>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 	<name>Modinput ${project.artifactId} app for Splunk</name>
 
 	<dependencies>
 		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>${project.artifactId}modinput</artifactId>
-			<version>${project.version}</version>
+			<groupId>com.rabbitmq</groupId>
+			<artifactId>amqp-client</artifactId>
+			<version>3.3.3</version>
 		</dependency>
 	</dependencies>
 	<build>

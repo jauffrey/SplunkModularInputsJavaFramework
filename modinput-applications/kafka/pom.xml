@@ -10,14 +10,14 @@
 	</parent>
 
 	<artifactId>kafka</artifactId>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 	<name>Modinput ${project.artifactId} app for Splunk</name>
 
 	<dependencies>
 		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>${project.artifactId}modinput</artifactId>
-			<version>${project.version}</version>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka_2.9.2</artifactId>
+			<version>0.8.1.1</version>
 		</dependency>
 	</dependencies>
 	<build>
