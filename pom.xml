@@ -13,11 +13,13 @@
 		<module>modinput-applications</module>
 	</modules>
 
+	<!-- some useful link to setup git on windows behind proxy http://blog.codeslower.com/2008/8/Using-PuTTY-and-SSL-to-securely-access-GitHub-repositories-via-SSH -->
 	<scm>
+		<url>https://github.com/jauffrey/SplunkModularInputsJavaFramework</url>
 		<connection>scm:git:git@github.com:jauffrey/SplunkModularInputsJavaFramework.git</connection>
 		<developerConnection>scm:git:git@github.com:jauffrey/SplunkModularInputsJavaFramework.git</developerConnection>
-		<url>http://github.com/jauffrey/SplunkModularInputsJavaFramework</url>
 	</scm>
+	
 	<distributionManagement>
 		<repository>
 			<id>internal.repo</id>
