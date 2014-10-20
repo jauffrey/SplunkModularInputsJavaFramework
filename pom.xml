@@ -18,6 +18,13 @@
 		<developerConnection>scm:git:git@github.com:jauffrey/SplunkModularInputsJavaFramework.git</developerConnection>
 		<url>http://github.com/jauffrey/SplunkModularInputsJavaFramework</url>
 	</scm>
+	<distributionManagement>
+		<repository>
+			<id>internal.repo</id>
+			<name>Temporary Staging Repository</name>
+			<url>file://${project.build.directory}/mvn-repo</url>
+		</repository>
+	</distributionManagement>
 
 	<build>
 		<pluginManagement>
