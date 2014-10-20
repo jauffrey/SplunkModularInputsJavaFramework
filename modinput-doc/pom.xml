@@ -14,14 +14,6 @@
 	<name>Modinput documentation repository</name>
 
 	<build>
-	<resources>
-      <resource>
-        <directory>${basedir}</directory>
-        <includes>
-          <include>**/*.md</include>
-        </includes>
-      </resource>
-    </resources>
     <plugins>
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
@@ -37,6 +29,9 @@
               <resources>          
                 <resource>
                   <directory>${basedir}</directory>
+					<includes>
+					  <include>**/*.md</include>
+					</includes>
                   <filtering>true</filtering>
                 </resource>
               </resources>              
