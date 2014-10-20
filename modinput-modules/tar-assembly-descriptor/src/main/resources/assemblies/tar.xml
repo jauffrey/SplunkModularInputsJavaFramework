@@ -12,5 +12,10 @@
 			<outputDirectory>${artifactId}_ta</outputDirectory>
 			<filtered>false</filtered>
 		</fileSet>
+		<fileSet>
+			<directory>target/config/bin/lib</directory>
+			<outputDirectory>${artifactId}_ta/bin/lib</outputDirectory>
+			<filtered>false</filtered>
+		</fileSet>
 	</fileSets>
 </assembly>
