@@ -11,6 +11,17 @@
 			<directory>src/main/config</directory>
 			<outputDirectory>${artifactId}_ta</outputDirectory>
 			<filtered>false</filtered>
+			<excludes>
+				<exclude>**/*.md</exclude>
+			</excludes>
+		</fileSet>
+		<fileSet>
+			<directory>src/main/config</directory>
+			<outputDirectory>${artifactId}_ta</outputDirectory>
+			<filtered>true</filtered>
+			<includes>
+				<include>**/*.md</include>
+			</includes>
 		</fileSet>
 		<fileSet>
 			<directory>target/config/bin/lib</directory>
