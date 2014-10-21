@@ -1,4 +1,4 @@
-## Splunk Amazon Kinesis Modular Input v${project.version} 0.6b
+## Splunk Amazon Kinesis Modular Input v${project.version}
 
 ## Overview
 

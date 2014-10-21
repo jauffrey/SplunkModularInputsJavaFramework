@@ -1,5 +1,4 @@
 ## Splunk AMQP Messaging Modular Input v ${project.version}
-0.6b
 
 ## Overview
 

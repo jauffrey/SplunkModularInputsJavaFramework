@@ -12,6 +12,11 @@
 		<module>modinput-modules</module>
 		<module>modinput-applications</module>
 	</modules>
+	
+	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+	</properties>
 
 	<!-- some useful link to setup git on windows behind proxy http://blog.codeslower.com/2008/8/Using-PuTTY-and-SSL-to-securely-access-GitHub-repositories-via-SSH -->
 	<scm>

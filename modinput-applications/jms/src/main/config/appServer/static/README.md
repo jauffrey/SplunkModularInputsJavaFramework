@@ -1,4 +1,4 @@
-## Splunk JMS Modular Input v${project.version} 1.3.7
+## Splunk JMS Modular Input v${project.version}
 
 ## Overview
 

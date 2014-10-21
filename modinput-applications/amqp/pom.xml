@@ -11,6 +11,7 @@
 
 	<artifactId>amqp</artifactId>
 	<packaging>jar</packaging>
+	<version>0.6b-SNAPSHOT</version>
 	<name>Modinput ${project.artifactId} app for Splunk</name>
 
 	<dependencies>
