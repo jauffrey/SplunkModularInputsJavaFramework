@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>com.splunk.modinput</groupId>
 		<artifactId>repo</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 

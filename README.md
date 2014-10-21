@@ -1,4 +1,4 @@
-## Splunk Java Modular Inputs v0.0.1-SNAPSHOT
+## Splunk Java Modular Inputs v1.1-SNAPSHOT
 
 ## Overview
 

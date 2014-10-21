@@ -10,6 +10,7 @@
 	<modules>
 		<module>modinput-modules</module>
 		<module>modinput-applications</module>
+		<module>modinput-doc</module>
 	</modules>
 	
 	<properties>
