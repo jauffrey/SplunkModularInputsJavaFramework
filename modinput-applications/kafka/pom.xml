@@ -4,13 +4,13 @@
 	<parent>
 		<groupId>com.splunk.modinput</groupId>
 		<artifactId>applications-repo</artifactId>
-		<version>1.0.1-SNAPSHOT</version>
+		<version>1.0.0</version>
 		<relativePath>..</relativePath>
 	</parent>
 
 	<artifactId>kafka</artifactId>
 	<packaging>jar</packaging>
-	<version>0.6b-SNAPSHOT</version>
+	<version>0.5b</version>
 	<name>Modinput ${project.artifactId} app for Splunk</name>
 
 	<dependencies>
